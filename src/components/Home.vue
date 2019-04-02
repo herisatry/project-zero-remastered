@@ -4,39 +4,39 @@
       <div class="container-fluid text-center">
         <div class="d-flex flex-row justify-content-sm-center">
           <div class="col-sm-auto cover-content p-4">
-            <form
-              class="form-inline"
-              @submit.prevent="startScan()">
-              <div class="form-group">
-                <select
-                  name="siteProtocol"
-                  id="siteProtocol"
-                  class="form-control"
-                  v-model="protocol">
-                  <option value="http">http://</option>
-                  <option
-                    value="https"
-                    selected>https://</option>
-                </select>
+            <form @submit.prevent="startScan()">
+              <div>
+                <div class="d-flex flex-row" id="search">
+                  <div class="p-3">
+                    <select name="siteProtocol" id="siteProtocol" v-model="protocol">
+                      <option value="https">HTTPS</option>
+                      <option value="http">HTTP</option>
+                    </select>
+                  </div>
+                  <div class="d-flex flex-row col p-3">
+                    <input
+                      type="text"
+                      name="siteHost"
+                      id="siteHost"
+                      placeholder="Enter website"
+                      v-model="host"
+                      required
+                    >
+                    <button type="submit">
+                      <img
+                        src="https://uploads.codesandbox.io/uploads/user/80271736-b547-4526-8caa-d60837d5f08c/H25m-magnifying-glass.png"
+                        alt="search icons"
+                      >
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="form-group mx-2">
-                <input
-                  class="form-control"
-                  type="text"
-                  name="siteHost"
-                  id="siteHost"
-                  placeholder="Enter website"
-                  v-model="host"
-                  required>
-              </div>
-              <button
-                type="submit"
-                class="btn btn-primary">Check my site</button>
             </form>
             <h3
               class="p-3 font-weight-normal"
               style="padding-bottom: 0; margin: 0;"
-              v-if="!anotherScan">You can do next scan in: {{ anotherScanTime }}s</h3>
+              v-if="!anotherScan"
+            >You can do next scan in: {{ anotherScanTime }}s</h3>
           </div>
         </div>
       </div>
@@ -46,11 +46,11 @@
 
 <script>
 export default {
-  name: 'Home',
+  name: "Home",
   data() {
     return {
       host: null,
-      protocol: 'https',
+      protocol: "https",
       anotherScanTime: 0,
       anotherScanTimer: null, // Scan timer
       anotherScan: true // When true user cant do another scan
@@ -59,8 +59,8 @@ export default {
   methods: {
     anotherScanAvailable() {
       const time = Date.now();
-      if (localStorage.getItem('lastUse')) {
-        if (localStorage.getItem('lastUse') < time) {
+      if (localStorage.getItem("lastUse")) {
+        if (localStorage.getItem("lastUse") < time) {
           return true;
         }
         if (!this.anotherScanTimer) {
@@ -80,8 +80,8 @@ export default {
     },
     getTimeToNextScan() {
       const time = Date.now();
-      if (localStorage.getItem('lastUse') > time) {
-        return Math.floor((localStorage.getItem('lastUse') - time) / 1000);
+      if (localStorage.getItem("lastUse") > time) {
+        return Math.floor((localStorage.getItem("lastUse") - time) / 1000);
       }
       return false;
     },
@@ -96,18 +96,18 @@ export default {
     startScan() {
       if (this.canIScan()) {
         const time = Date.now();
-        localStorage.setItem('lastUse', time + (2 * 60000));
-        const a = document.createElement('a');
+        localStorage.setItem("lastUse", time + 2 * 60000);
+        const a = document.createElement("a");
         a.href = `${this.protocol}://${this.host}`;
         this.$router.push(`/check/${a.hostname}?protocol=${this.protocol}`);
       }
       return false;
     },
     footerSwitch() {
-      const footer = document.getElementById('footer');
+      const footer = document.getElementById("footer");
       if (footer) {
-        if (footer.className !== 'container-fluid pt-4 bg-light') {
-          footer.className = 'container-fluid pt-4 bg-light';
+        if (footer.className !== "container-fluid pt-4 bg-light") {
+          footer.className = "container-fluid pt-4 bg-light";
         }
         return true;
       }
@@ -133,12 +133,64 @@ export default {
 }
 
 .cover-caption {
-  width: 100%;
-  transition: all .3s linear;
+  width: 100vh;
+  transition: all 0.3s linear;
 }
 
 .cover-content {
-  background: rgba(0,0,0,0.8);
   color: white;
+}
+
+body {
+  background: url(../img/gradient-1920x1080-purple-blue-5k-16163.jpg);
+}
+select {
+  background: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+input,
+select {
+  /* border-bottom: 2px solid #ffffff; */
+  width: 100%;
+  height: 48px;
+  font-size: 24px;
+  color: gray;
+}
+input,
+select:focus {
+  background: none;
+  outline: none;
+}
+
+input {
+  border: none;
+  color: white;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+}
+select,
+button:hover {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+}
+p,
+h1,
+h2,
+h3,
+h4 {
+  color: #ffffff;
+}
+
+#search {
+  border-bottom: 2px solid #ffffff;
 }
 </style>

@@ -18,7 +18,7 @@
             </ul>
           </div>
           <div class="col-6 text-right pt-4">
-            <small class="d-block text-muted">CheckME.XaFF &copy; 2018</small>
+            <small class="d-block text-muted">herisatry.com &copy; 2019</small>
             <small class="d-block text-muted pt-2"><b>Version: </b>{{ appVer }}</small>
           </div>
         </div>
@@ -56,6 +56,7 @@ body,
 img {
   max-width: 100%;
 }
+
 footer {
   position: fixed;
   left: 0;
