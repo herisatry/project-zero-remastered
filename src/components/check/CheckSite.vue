@@ -4,10 +4,12 @@
       <div
         class="container d-flex flex-column flex-md-row justify-content-between align-items-center"
       >
-        <h1
-          class="py-2 d-none d-md-inline-block text-white"
-          v-smooth-scroll="{ duration: 1000, offset: -100 }"
-        >Projet Zero</h1>
+
+        <img class="py-2 d-none d-md-inline-block text-white"
+        v-smooth-scroll="{ duration: 1000, offset: -100 }"
+            width="20%"
+            src="https://images.squarespace-cdn.com/content/5659c286e4b08c62b9dae52f/1551903850746-QG0CVPDZ4H2HW62CD6NS/Project0_logo_prm_notm_main-01.png?content-type=image%2Fpng"
+          >
 
         <router-link
           class="py-2 d-none d-md-inline-block h3"

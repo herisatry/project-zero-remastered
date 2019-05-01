@@ -2,6 +2,12 @@
   <section class="cover">
     <div class="cover-caption">
       <div class="container-fluid text-center">
+        <div class="d-flex flex-row justify-content-center align-items-center">
+          <img
+            width="50%"
+            src="https://images.squarespace-cdn.com/content/5659c286e4b08c62b9dae52f/1551903850746-QG0CVPDZ4H2HW62CD6NS/Project0_logo_prm_notm_main-01.png?content-type=image%2Fpng"
+          >
+        </div>
         <div class="d-flex flex-row form-inline justify-content-center">
           <div class="col-sm-auto cover-content p-4">
             <form @submit.prevent="startScan()">
