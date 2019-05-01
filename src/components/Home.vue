@@ -2,7 +2,7 @@
   <section class="cover">
     <div class="cover-caption">
       <div class="container-fluid text-center">
-        <div class="d-flex flex-row justify-content-sm-center">
+        <div class="d-flex flex-row form-inline justify-content-center">
           <div class="col-sm-auto cover-content p-4">
             <form @submit.prevent="startScan()">
               <div>
@@ -126,14 +126,14 @@ export default {
 <style scoped>
 .cover {
   color: white;
-  height: 90%;
+  height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .cover-caption {
-  width: 100vh;
   transition: all 0.3s linear;
 }
 
@@ -141,9 +141,6 @@ export default {
   color: white;
 }
 
-body {
-  background: url(../img/gradient-1920x1080-purple-blue-5k-16163.jpg);
-}
 select {
   background: none;
   border: none;
