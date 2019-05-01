@@ -1,19 +1,27 @@
 <template>
   <div id="check">
     <nav class="site-header sticky-top py-1">
-      <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between align-items-center"
+      >
         <h1
           class="py-2 d-none d-md-inline-block text-white"
           v-smooth-scroll="{ duration: 1000, offset: -100 }"
         >Projet Zero</h1>
 
         <router-link
-          class="py-2 d-none d-md-inline-block"
+          class="py-2 d-none d-md-inline-block h3"
           title="proceed to a new scan"
           to="/"
-        >New scan</router-link>
+        >[ New scan ]</router-link>
 
-        
+        <a
+          class="py-2 d-none d-md-inline-block h3"
+          href="#"
+          v-smooth-scroll="{ duration: 1000, offset: -46 }"
+          @click="printpage()"
+        >[ Print report ]</a>
+
         <!--
         <a
           class="py-2 d-none d-md-inline-block"
@@ -62,6 +70,9 @@ export default {
     return {};
   },
   methods: {
+    printpage() {
+      window.print();
+    },
     analyzeSize() {
       return true;
     },
