@@ -35,7 +35,7 @@
                           <div class="grade-container">
                             <h3 class="header">Grade</h3>
                             <div
-                              :class="`grade p-4 text-light font-weight-normal bg-${finalGradeColor}`"
+                              :class="`h grade p-4 text-light font-weight-normal bg-${finalGradeColor}`"
                             >{{ finalGrade }}</div>
                           </div>
                         </div>
@@ -866,7 +866,7 @@ $danger-dark-color: darken(#dc3545, 10%);
       .grade-container {
         .grade {
           font-size: 3rem;
-          border-radius: 10px;
+          border-radius: 20px;
         }
       }
     }
@@ -884,4 +884,4 @@ $danger-dark-color: darken(#dc3545, 10%);
   }
 }
 </style>
-</style>
+

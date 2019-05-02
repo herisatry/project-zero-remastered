@@ -1,10 +1,9 @@
 <template>
-  <section class="cover">
+  <section class="cover d-flex flex-row justify-content-center align-items-center">
     <div class="cover-caption">
       <div class="container-fluid text-center">
         <div class="d-flex flex-row justify-content-center align-items-center">
           <img
-            width="50%"
             src="https://images.squarespace-cdn.com/content/5659c286e4b08c62b9dae52f/1551903850746-QG0CVPDZ4H2HW62CD6NS/Project0_logo_prm_notm_main-01.png?content-type=image%2Fpng"
           >
         </div>
@@ -129,10 +128,10 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .cover {
   color: white;
-  height: 100vh;
+
   text-align: center;
   display: flex;
   align-items: center;
