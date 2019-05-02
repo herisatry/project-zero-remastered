@@ -1,7 +1,7 @@
 <template>
   <div id="testing-suite">
     <h1
-      class="clickable text-center text-light text-uppercase"
+      class="text-center text-light text-uppercase"
       @click="toggleSpoiler($event)"
     >{{ host }} - scan report</h1>
     <div class="d-flex flex-row text-center justify-content-sm-center">
@@ -448,11 +448,7 @@ export default {
       }
     };
   },
-  /*
-  TODO:
-  Notification about error on site
-  Check is site exists (will added in v0.2.0)
-  */
+
   methods: {
     async testSite() {
       try {
@@ -508,9 +504,7 @@ export default {
                 const date = new Date(this.response.ts * 1000);
                 this.serverInfo.testDate = `${date.getUTCFullYear()}/${date.getUTCMonth() +
                   1}/${date.getUTCDate()} ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()}`;
-                this.serverInfo.serverLocation = `${
-                  this.response.internals.country
-                }, ${this.response.internals.city}`;
+                this.serverInfo.serverLocation = this.response.server_location;
                 this.highlights = this.response.global_highlights;
                 this.resolved.shortResult = true;
                 this.webServerSecurity.httpResponse = this.response.http_response;
@@ -549,6 +543,11 @@ export default {
                   };
                 });
                 this.resolved.webServerSecurity = true;
+
+                /*TO DO 
+                ADD TWO MORE SCANS : CMS AND PLUGINS /COMPONENTS
+                */
+
                 this.httpHeadersSecurity = this.response.http_headers;
                 this.resolved.httpHeadersSecurity = true;
                 this.cookiesSecurity = this.response.http_cookies;
