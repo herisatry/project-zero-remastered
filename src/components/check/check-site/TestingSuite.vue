@@ -874,6 +874,11 @@ $danger-dark-color: darken(#dc3545, 10%);
   .noprint {
     display: none;
   }
+  h1, h2 {
+    page-break-after: avoid;
+    page-break-before: always;
+}
+ p {page-break-inside: avoid;}
 }
 </style>
 

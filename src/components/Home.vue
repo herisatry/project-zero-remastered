@@ -1,25 +1,25 @@
 <template>
-  <section class="cover p-5">
-    <div class="cover-caption d-flex flex-row justify-content-center align-items-center">
+  <section class="cover">
+    <div class="cover-caption">
       <div class="container-fluid text-center">
-        <div class="d-flex flex-row justify-content-center align-items-center pb-5">
+        <div class="d-flex flex-row justify-content-center align-items-center pb-3">
           <img
             width="40%"
             src="https://images.squarespace-cdn.com/content/5659c286e4b08c62b9dae52f/1551903850746-QG0CVPDZ4H2HW62CD6NS/Project0_logo_prm_notm_main-01.png?content-type=image%2Fpng"
           >
         </div>
-        <div class="d-flex flex-row form-inline justify-content-center">
+        <div class="d-flex flex-row form-inline justify-content-center align-items-center">
           <div class="col-sm-auto cover-content">
             <form @submit.prevent="startScan()">
               <div>
                 <div class="d-flex flex-row" id="search">
-                  <div class="p-3">
+                  <div class>
                     <select name="siteProtocol" id="siteProtocol" v-model="protocol">
                       <option value="https">HTTPS</option>
                       <option value="http">HTTP</option>
                     </select>
                   </div>
-                  <div class="d-flex flex-row col p-3">
+                  <div class="d-flex flex-row col">
                     <input
                       type="text"
                       name="siteHost"
@@ -39,7 +39,7 @@
               </div>
             </form>
             <h3
-              class="p-3 font-weight-normal"
+              class="font-weight-normal"
               style="padding-bottom: 0; margin: 0;"
               v-if="!anotherScan"
             >You can do next scan in: {{ anotherScanTime }}s</h3>
@@ -132,7 +132,7 @@ export default {
 <style scoped lang="scss">
 .cover {
   color: white;
-
+  height: 100vh;
   text-align: center;
   display: flex;
   align-items: center;
