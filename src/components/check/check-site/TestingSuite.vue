@@ -17,8 +17,8 @@
               aria-valuemax="100"
             />
           </div>
-          <div id="shortResult">
-            <div class="card bg-light">
+          <div id="shortResult " class="card">
+            <div class="bg-light">
               <h1
                 class="card-title bg-info clickable text-center text-light text-uppercase"
                 @click="toggleSpoiler($event)"
@@ -90,15 +90,11 @@
                 </div>
               </div>
             </div>
-          </div>
-          <hr>
-          <div id="webServerSecurity">
-            <div class="card bg-light">
-              <h1
+            <h1
                 class="card-title bg-info clickable text-center text-light text-uppercase"
                 @click="toggleSpoiler($event)"
               >Web security</h1>
-              <div class="card-body">
+              <div class="card-body bg-light">
                 <div class="text-center" v-if="!resolved.webServerSecurity">
                   <img src="../../../assets/img/loader-big.svg">
                 </div>
@@ -209,11 +205,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <hr>
-          <div id="httpHeadersSecurity">
-            <div class="card bg-light">
+              <div class="card bg-light">
               <h1
                 class="card-title bg-info clickable text-center text-light text-uppercase"
                 @click="toggleSpoiler($event)"
@@ -267,10 +259,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <hr>
-
-          <div id="cookiesSecurity">
             <div class="card bg-light">
               <h1
                 class="card-title bg-info clickable text-center text-light text-uppercase"
@@ -356,10 +344,6 @@
                 </div>
               </div>
             </div>
-          </div>
-          <hr>
-
-          <div id="thirdPartyContent">
             <div class="card bg-light">
               <h1
                 class="card-title bg-info clickable text-center text-light text-uppercase"
@@ -403,6 +387,7 @@
         </div>
       </div>
     </div>
+    </div>        
   </div>
 </template>
 
@@ -418,7 +403,8 @@ export default {
         serverIp: null, // Resolved server ip
         reverseDNS: null, // Reverse dns
         testDate: null, // Time of a test
-        serverLocation: null // Server location
+        serverLocation: null, // Server location
+        app_scan: {}
       },
       highlights: null, // Short results
       webServerSecurity: {
@@ -506,6 +492,7 @@ export default {
                   1}/${date.getUTCDate()} ${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()}`;
                 this.serverInfo.serverLocation = this.response.server_location;
                 this.highlights = this.response.global_highlights;
+                
                 this.resolved.shortResult = true;
                 this.webServerSecurity.httpResponse = this.response.http_response;
                 this.webServerSecurity.redirect =
@@ -880,6 +867,12 @@ $danger-dark-color: darken(#dc3545, 10%);
       overflow: hidden;
       padding: 0;
     }
+  }
+}
+
+@media print {
+  .noprint {
+    display: none;
   }
 }
 </style>

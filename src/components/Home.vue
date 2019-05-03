@@ -1,14 +1,15 @@
 <template>
-  <section class="cover d-flex flex-row justify-content-center align-items-center">
-    <div class="cover-caption">
+  <section class="cover p-5">
+    <div class="cover-caption d-flex flex-row justify-content-center align-items-center">
       <div class="container-fluid text-center">
-        <div class="d-flex flex-row justify-content-center align-items-center">
+        <div class="d-flex flex-row justify-content-center align-items-center pb-5">
           <img
+            width="40%"
             src="https://images.squarespace-cdn.com/content/5659c286e4b08c62b9dae52f/1551903850746-QG0CVPDZ4H2HW62CD6NS/Project0_logo_prm_notm_main-01.png?content-type=image%2Fpng"
           >
         </div>
         <div class="d-flex flex-row form-inline justify-content-center">
-          <div class="col-sm-auto cover-content p-4">
+          <div class="col-sm-auto cover-content">
             <form @submit.prevent="startScan()">
               <div>
                 <div class="d-flex flex-row" id="search">
