@@ -20,7 +20,7 @@
           <div id="shortResult " class="card">
             <div class="bg-light">
               <h1
-                class="card-title bg-info clickable text-center text-light text-uppercase"
+                class="bg-info card-title clickable text-center text-light text-uppercase"
                 @click="toggleSpoiler($event)"
               >Server information</h1>
               <div class="card-body">
